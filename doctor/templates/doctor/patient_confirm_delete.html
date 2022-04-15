@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-control">
+    <h4>DELETE {{patient.salutation | upper}} {{patient.firstname | upper}} {{patient.lastname | upper}}'S RECORDS?</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+    </form>
+    <br><br>
+</div>
+
+{% endblock content %}

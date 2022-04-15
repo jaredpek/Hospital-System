@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<div class="myform form-control">
+    <h4>ADD PATIENT RECORD</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+            <tr><td>{{field.label_tag}}</td><td>{{field}}</td></tr>
+            {% endfor %}
+        </table><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br>
+</div>
+
+{% endblock content %}

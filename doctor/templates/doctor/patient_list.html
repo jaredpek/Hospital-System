@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<div class="form-control">
+    <h4>LIST OF PATIENTS</h4>
+    <ul>
+        {% for patient in patientlist %}
+        <li>
+            <a>
+                {{patient.salutation | lower | capfirst}} {{patient.firstname | lower | capfirst}} {{patient.lastname | lower | capfirst}}
+            </a>
+            <a href="/updatepatient/{{patient.id}}">
+                (View/Update)
+            </a>
+            <a href="/deletepatient/{{patient.id}}">
+                (Delete)
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br><br>
+</div>
+
+{% endblock content %}

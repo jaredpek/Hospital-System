@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% csrf_token %}
+<div class="form-control">
+    <h4>WELCOME, DR {{data.firstname | upper}} {{data.lastname | upper}}</h4><br>
+    <h5>PERSONAL PROFILE</h5>
+    <table>
+        <tr><th>FULLNAME</th><td>{{data.firstname | lower | capfirst}} {{data.lastname | lower | capfirst}}</td></tr>
+        <tr><th>GENDER</th><td>{{data.gender | lower | capfirst}}</td></tr>
+        <tr><th>AGE</th><td>{{data.age}}</td></tr>
+        <tr><th>MEDICAL PASS NUMBER</th><td>{{data.medicalpass | upper}}</td></tr>
+        <tr><th>IDENTITY NUMBER</th><td>{{data.identitynum | upper}}</td></tr>
+        <tr><th>EMAIL ADDRESS</th><td>{{data.email}}</td></tr>
+        <tr><th>CONTACT NUMBER</th><td>{{data.contactnum}}</td></tr>
+    </table><br>
+    <!--<a class="btn btn-primary" href="{% url 'doctor:login' %}" role="button">LOGOUT</a>-->
+    <br><br>
+</div>
+
+{% endblock content %}
